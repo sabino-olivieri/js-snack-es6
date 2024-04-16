@@ -34,7 +34,7 @@ const bikes = [
     },
     { 
         bikeName: "Orbea Oca", 
-        weight: 6.5 
+        weight: 5.8 
     },
     { 
         bikeName: "Scott Foil", 
@@ -42,9 +42,9 @@ const bikes = [
     },
 ];
 
-let weightMax = 0;
-let indexWeightMax = 0;
-let heavierBikes = [];
+let weightMin = bikes[0].weight;
+let indexWeightMin = 0;
+let lighterBikes = [];
 let strPrint = "";
 
 const containerElem = document.querySelector(".container");
@@ -53,9 +53,9 @@ bikes.forEach((element, index) => {
     const {weight} = element;
     // console.log(weight);
 
-    if (weight > weightMax) {
-        weightMax = weight;
-        indexWeightMax = index;
+    if (weight < weightMin) {
+        weightMin = weight;
+        indexWeightMin = index;
     }   
 
     
@@ -65,24 +65,24 @@ bikes.forEach((element) => {
     const {weight} = element;
     // console.log(weight);
 
-    if (weight === weightMax) {
-        heavierBikes.push(element);
+    if (weight === weightMin) {
+        lighterBikes.push(element);
     }   
 
     
 });
 
 
-strPrint = (heavierBikes.length > 1) ? ("Le bici più pesanti sono:") : ("La bici più pesante è:");
+strPrint = (lighterBikes.length > 1) ? ("Le bici più leggere sono:") : ("La bici più leggera è:");
 
 containerElem.innerHTML = `<h2>${strPrint}</h2>`;
 const listElem = document.createElement("ul");
 
-heavierBikes.forEach(element => {
+lighterBikes.forEach(element => {
     listElem.innerHTML += `<li>${element.bikeName} con il peso di: ${element.weight}kg</li>`
 });
 
 containerElem.append(listElem);
 
 
-console.log(weightMax, indexWeightMax);
+console.log(weightMin, indexWeightMin);
