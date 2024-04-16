@@ -6,8 +6,8 @@ Crea quindi un nuovo array inserendo, per ogni persona, una frase con il nome e 
 
 
 ## Svolgimento
-- [] creo array di persone
-- [] creo nuovoArray con map
+- [x] creo array di persone
+- [x] creo nuovoArray con map
     - se element.eta >= 18
         - return stringa "può guidare"
         altrimenti
